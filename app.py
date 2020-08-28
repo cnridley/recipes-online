@@ -23,6 +23,10 @@ def get_recipes():
     Recipe = mongo.db.Recipe.find()
     return render_template ("get_recipes.html", Recipe=Recipe)
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
