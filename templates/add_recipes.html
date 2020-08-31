@@ -5,7 +5,7 @@
     <h3 class="amber-text text-lighten-2 center-align">Add a new recipe!</h3>
 
     <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
     <div class="row">
         <div class="input-field col s12">
         <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
@@ -18,6 +18,7 @@
                 <label for="category_name">Categories</label>
         </div>
     </div>
+    <!--recioe name-->
         <div class="row">
             <div class="input-field col s12">
             <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
@@ -25,6 +26,7 @@
             <label for="recipe_name">Recipe Name</label>
             </div>
         </div>
+        <!--ingredients-->
         <div class="row">
             <div class="input-field col s12">
             <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
@@ -32,6 +34,7 @@
           <label for="ingredients">Ingredients</label>
             </div>
         </div>
+        <!--method-->
         <div class="row">
             <div class="input-field col s12">
             <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
@@ -39,6 +42,7 @@
           <label for="method">Method</label>
             </div>
         </div>
+        <!--Time to make-->
         <div class="row">
             <div class="input-field col s12">
             <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
@@ -46,6 +50,7 @@
           <label for="time">Time</label>
             </div>
         </div>
+        <!--Fav picker-->
         <div class="row"> 
             <div class="input-field col s12"> 
                 <div class="switch">
@@ -57,8 +62,18 @@
                 </div>
             </div>
         </div>
+          <!--Submit Button-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large amber lighten-2 center-align">Submit Your New Recipe!
+                <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
     </form>
-  </div>
+    </div>
+  
+
         
 
 {% endblock %}
