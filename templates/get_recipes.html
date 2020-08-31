@@ -17,7 +17,7 @@
          <p>Preparation time: {{ recipe.time }}</p>
          <p><em>Created By: {{ recipe.created_by }} </em></p>
          {% if session.user %}
-         <a href="" class="btn-small amber lighten-2 text-white center-align">Edit Your Recipe</a>
+         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small amber lighten-2 text-white center-align">Edit Your Recipe</a>
          <a href="" class="btn-small amber lighten-2 text-white center-align">Delete Your Recipe</a>
          {% endif %}
       </div>

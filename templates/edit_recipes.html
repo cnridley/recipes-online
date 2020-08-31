@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3 class="amber-text text-lighten-2 center-align">Edit your recipe!</h3>
+
+    <div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    <div class="row">
+        <div class="input-field col s12">
+        <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
+            <select id="category_name" name="category_name" class="validate">
+                <option value="" disabled selected>Choose a category</option>
+                {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+                <label for="category_name">Categories</label>
+        </div>
+    </div>
+    <!--recioe name-->
+        <div class="row">
+            <div class="input-field col s12">
+            <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
+            <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+            <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
+        <!--ingredients-->
+        <div class="row">
+            <div class="input-field col s12">
+            <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
+            <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
+          <label for="ingredients">Ingredients</label>
+            </div>
+        </div>
+        <!--method-->
+        <div class="row">
+            <div class="input-field col s12">
+            <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
+            <textarea id="method" name="method" class="materialize-textarea validate" required></textarea>
+          <label for="method">Method</label>
+            </div>
+        </div>
+        <!--Time to make-->
+        <div class="row">
+            <div class="input-field col s12">
+            <i class="fas fa-utensils prefix amber-text text-lighten-2"></i>
+            <textarea id="time" name="time" class="materialize-textarea validate" required></textarea>
+          <label for="time">Time</label>
+            </div>
+        </div>
+        <!--Fav picker-->
+        <div class="row"> 
+            <div class="input-field col s12"> 
+                <div class="switch">
+                    <label for="favourite">
+                    <input type="checkbox" id="favourite" name="favourite">
+                    <span class="lever"></span>
+                        Favourite
+                    </label>
+                </div>
+            </div>
+        </div>
+          <!--Submit Button-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large amber lighten-2 center-align">Edit Recipe!
+                <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+  
+
+        
+
+{% endblock %}
