@@ -3,6 +3,26 @@
 
 <h3 class="amber-text text-lighten-2 center-align">All Recipes</h3>
 
+<div class="row card-panel grey lighten-5">
+    <form action="{{ url_for('search') }}" method="POST" class="col s12">
+        <div class="valign-wrapper row center-align">
+            <div class="input-field col s12 m8">
+                <i class="fas fa-search prefix amber-text text-lighten-2 left"></i>
+                <input type="text" name="query" id="query" class="validate" required>
+                <label for="query">Search Recipes Online</label>
+            </div>
+            <div class="col s12 m4">
+                <a href="{{ url_for('get_recipes') }}" class="btn red">Reset</a>
+                <button class="amber lighten-2 btn" type="submit">
+                    <i class="fas fa-search left"></i>Search
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% if Recipe|length > 0 %}
   <ul class="collapsible">
   {% for recipe in Recipe %}
     <li>
@@ -24,5 +44,8 @@
     </li>
     {% endfor %}
   </ul>
+  {% else %}
+  <h3 class="red-text center-align">No Recipes Found!</h3>
+  {% endif %}
 
 {% endblock %}

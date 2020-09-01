@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="amber-text text-lighten-2 center-align">Categories</h3>
+
+  <div class="row">
+  {% for category in categories %}
+        <div class="col s12 m4">
+        <div class="card amber lighten-2">
+            <div class="card-content white-text">
+            <span class="card-title">{{ category.category_name }}</span>
+            </div>
+            <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
