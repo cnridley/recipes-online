@@ -32,7 +32,8 @@
       </div>
       <div class="collapsible-body">
          <strong>{{ recipe.category_name }}</strong>
-            {% if session.user %}
+         {% if session.user %}
+        <form method="POST" action="">
          <span class="switch">
             <label class="amber-text right text2">
                  Favourite
@@ -41,6 +42,7 @@
             </label>
         </span>
          {% endif %}
+        </form>
 
          <p>{{ recipe.ingredients }}</p>
          <p>{{ recipe.method }}</p>
