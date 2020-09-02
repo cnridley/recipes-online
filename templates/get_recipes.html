@@ -50,16 +50,6 @@
          <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small amber lighten-2 text-white center-align">Edit Your Recipe</a>
          <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small amber lighten-2 text-white center-align">Delete Your Recipe</a>
          {% endif %}
-         {% if session.user %}
-         <span class="switch black">
-            <label class="amber-text right text2">
-                 Favourite
-                <input type="checkbox">
-                <span class="lever amber lighten-2"></span>
-            </label>
-        </span>
-         {% endif %}
-        
       </div>
     </li>
     {% endfor %}
