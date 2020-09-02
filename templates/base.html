@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     {% block styles %}
     {% endblock %}
     <title>Recipes Online</title>
@@ -15,33 +16,33 @@
     <!--Top bar-->
     <nav class="amber lighten-2">
         <div class="nav-wrapper">
-        <a href="{{ url_for('get_recipes') }}" class="brand-logo">Recipes Online</a>
+        <a href="{{ url_for('get_recipes') }}" class="center-align text1">Recipes Online</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                <li><a href="{{ url_for('get_recipes') }}" class="text2">Home</a></li>
                 {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="text2">Profile</a></li>
+                <li><a href="{{ url_for('add_recipe') }}" class="text2">Add Recipe</a></li>
+                <li><a href="{{ url_for('categories') }}" class="text2">Favourites</a></li>
+                <li><a href="{{ url_for('logout') }}" class="text2">Log Out</a></li>
                 {% else %}
-                <li><a href="{{ url_for('categories') }}">Categories</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}" class="text2">Register</a></li>
+                <li><a href="{{ url_for('login') }}" class="text2">Log In</a></li>
                 {% endif %}
             </ul>
         </div>
     </nav>
 <!--monbile nav bar -->
-            <ul class="sidenav right" id="mobile-demo">
-                <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            <ul class="sidenav right amber-text lighten-2" id="mobile-demo">
+                <li><a href="{{ url_for('get_recipes') }}" class="text2">Home</a></li>
                 {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="text2">Profile</a></li>
+                <li><a href="{{ url_for('add_recipe') }}" class="text2">Add Recipe</a></li>
+                <li><a href="{{ url_for('categories') }}" class="text2">Favourites</a></li>
+                <li><a href="{{ url_for('logout') }}" class="text2">Log Out</a></li>
                 {% else %}
-                <li><a href="{{ url_for('categories') }}">Categories</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}" class="text2">Register</a></li>
+                <li><a href="{{ url_for('login') }}" class="text2">Log In</a></li>
                 {% endif %}
              </ul>
           
@@ -53,7 +54,7 @@
         {% if messages %}
             {% for message in messages %}
             <div class="row flashes">
-            <h4 class="amber lighten-2 center-align">{{ message }}</h4>
+            <h4 class="amber lighten-2 center-align text1">{{ message }}</h4>
             </div>
             {% endfor %}
         {% endif %}

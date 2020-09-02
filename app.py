@@ -93,9 +93,11 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        UserRecipe = list(mongo.db.Recipe.find({'created_by': username.lower()}))
+        return render_template("profile.html", username=username, UserRecipe=UserRecipe)
 
     return redirect(url_for('login'))
+
 
 @app.route("/logout")
 def logout():

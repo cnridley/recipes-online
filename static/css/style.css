@@ -5,3 +5,13 @@ body {
 .flashes {
     line-height: 3;
 }
+
+.text1{
+    font-family: 'Allura', cursive;
+    font-size: 50px;
+}
+
+.text2 {
+    font-family: 'Allura', cursive;
+    font-size: 25px;
+}
