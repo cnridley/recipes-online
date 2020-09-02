@@ -21,3 +21,8 @@
 .collapsible-header{
     margin: 5px;
 }
+
+#favouriteBtn {
+    background-color: #ffd54f;
+    color: white;
+}
