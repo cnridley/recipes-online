@@ -44,7 +44,8 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "favourite": request.form.get("favourite", [])
         }
 
         mongo.db.User.insert_one(register)
@@ -151,10 +152,8 @@ def delete_recipe(recipe_id):
     flash("Recipe Deleted!")
     return redirect(url_for("get_recipes"))
 
-@app.route("/categories")
-def categories():
-    categories = list(mongo.db.Category.find().sort("category_name"))
-    return render_template("categories.html", categories=categories)
+@app.route("/favourites/<recipe_id>")
+def favourites(recipe_id):
 
 
 
