@@ -33,7 +33,7 @@
       <div class="collapsible-body">
          <strong>{{ recipe.category_name }}</strong>
          {% if session.user %}
-        <form method="POST" action="{{ url_for('favourites', recipe_id=recipe._id) }}">
+        <form method="POST" action="{{ url_for('view_favourites', recipe_id=recipe._id) }}">
          <span class="switch">
             <label class="amber-text right text2">
                  Favourite

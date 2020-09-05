@@ -152,8 +152,11 @@ def delete_recipe(recipe_id):
     flash("Recipe Deleted!")
     return redirect(url_for("get_recipes"))
 
-@app.route("/favourites/<recipe_id>")
-def favourites(recipe_id):
+@app.route("/view_favourites")
+def view_favourites():
+    favourited = session['user']
+    favourites = list(mongo.db.User.find_one())
+    return render_template ("favourites.html", favourites=favourites)
 
 
 
@@ -161,4 +164,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
