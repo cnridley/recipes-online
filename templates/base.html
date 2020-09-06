@@ -23,7 +23,7 @@
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="text2">Profile</a></li>
                 <li><a href="{{ url_for('add_recipe') }}" class="text2">Add Recipe</a></li>
-                <li><a href="{{ url_for('view_favourites') }}" class="text2">Favourites</a></li>
+                <li><a href="{{ url_for('view_favourites', username=session['user']) }}" class="text2">Favourites</a></li>
                 <li><a href="{{ url_for('logout') }}" class="text2">Log Out</a></li>
                 {% else %}
                 <li><a href="{{ url_for('register') }}" class="text2">Register</a></li>
@@ -38,7 +38,7 @@
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="text2">Profile</a></li>
                 <li><a href="{{ url_for('add_recipe') }}" class="text2">Add Recipe</a></li>
-                <li><a href="{{ url_for('view_favourites') }}" class="text2">Favourites</a></li>
+                <li><a href="{{ url_for('view_favourites', username=session['user']) }}" class="text2">Favourites</a></li>
                 <li><a href="{{ url_for('logout') }}" class="text2">Log Out</a></li>
                 {% else %}
                 <li><a href="{{ url_for('register') }}" class="text2">Register</a></li>

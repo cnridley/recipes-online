@@ -34,4 +34,3 @@ page where the recipes they have added are stored, and where they can favourite 
 * As a member, I want the option to edit the recipes I have uploaded to the site.
 * As a member, I want the option to delete the recipes I have uploaded to the site. 
 
-

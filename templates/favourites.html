@@ -4,26 +4,19 @@
 
 <h3 class="amber-text text-lighten-2 center-align text1">Favourites For Later</h3>
 
-{% if Recipe|length > 0 %}
+
   <ul class="collapsible">
-  {% for favourite in favourites %}
+  {% for recipe in favourite_recipe %}
     <li>
       <div class="collapsible-header amber lighten-2 white-text">
         <i class="fas fa-caret-down"></i>
-        <strong>{{ favourite.recipe_name|upper }} </strong>
+        <strong>{{ recipe.recipe_name|upper }} </strong>
       </div>
       <div class="collapsible-body">
-         <strong>{{ favourite.category_name }}</strong>
-         <p>{{ favourite.ingredients }}</p>
-         <p>{{ favourite.method }}</p>
-         <p>Preparation time: {{ favourite.time }}</p>
-         <p><em>Created By: {{ favourite.created_by }} </em></p>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <h3 class="red-text center-align">No Recipes Found!</h3>
-  {% endif %}
-
+         <strong>{{ recipe.category_name }}</strong>
+         <p>{{ recipe.ingredients }}</p>
+         <p>{{ recipe.method }}</p>
+         <p>Preparation time: {{ recipe.time }}</p>
+         <p><em>Created By: {{ recipe.created_by }} </em></p>
+         
 {% endblock %}

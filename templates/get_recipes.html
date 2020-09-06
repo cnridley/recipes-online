@@ -32,18 +32,6 @@
       </div>
       <div class="collapsible-body">
          <strong>{{ recipe.category_name }}</strong>
-         {% if session.user %}
-        <form method="POST" action="{{ url_for('view_favourites', recipe_id=recipe._id) }}">
-         <span class="switch">
-            <label class="amber-text right text2">
-                 Favourite
-                <input type="checkbox">
-                <span class="lever amber lighten-2"></span>
-            </label>
-        </span>
-         {% endif %}
-        </form>
-
          <p>{{ recipe.ingredients }}</p>
          <p>{{ recipe.method }}</p>
          <p>Preparation time: {{ recipe.time }}</p>
@@ -51,6 +39,10 @@
          {% if session.user|lower == recipe.created_by|lower %}
          <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small amber lighten-2 text-white center-align">Edit Your Recipe</a>
          <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small amber lighten-2 text-white center-align">Delete Your Recipe</a>
+         {% endif %}
+         {% if session.user %}
+        <a href="{{ url_for('add_favourites', favourite_recipe=Recipe._id) }}" 
+        class="btn-small amber lighten-2 text-white center-align">Favourite</a>
          {% endif %}
       </div>
     </li>
