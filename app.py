@@ -160,19 +160,12 @@ def view_favourites(username):
         return render_template ("favourites.html", favourites=favourites, username=username)
 
 
-@app.route("/add_favourites/<favourite_recipe>")
+@app.route("/add_favourites/<favourite_recipe>", methods=["GET", "POST"])
 def add_favourites(favourite_recipe):
     if request.method == "POST":
-        favourite = {
-            "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
-            "time": request.form.get("time"),
-            "created_by": session['user']
-        }
-        mongo.db.User.update({"_id": ObjectId(favourite_recipe)})
-        return render_template("favourites.html", favourite_recipe=favourite_recipe)
+        user_favourite = mongo.db.User.find_one({"username": session["user"]})
+        mongo.db.User.update({"_id": ObjectId(user_favourite["_id"])}, {"$push": {"favourites": favourite_recipe}})
+        return render_template("favourites.html")
 
 
 
