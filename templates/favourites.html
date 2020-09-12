@@ -6,7 +6,7 @@
 
 
   <ul class="collapsible">
-  {% for recipe in favourite_recipe %}
+  {% for recipe in favs %}
     <li>
       <div class="collapsible-header amber lighten-2 white-text">
         <i class="fas fa-caret-down"></i>
@@ -18,6 +18,16 @@
          <p>{{ recipe.method }}</p>
          <p>Preparation time: {{ recipe.time }}</p>
          <p><em>Created By: {{ recipe.created_by }} </em></p>
+      </div>
+    </li>
     {% endfor %}
-         
+
+
+   
+  </ul>
+  
+
+
+    
+
 {% endblock %}
