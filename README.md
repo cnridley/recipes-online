@@ -62,6 +62,26 @@ This recipe will then be added to a personalized 'favourites' page.
 * **Remove from favourites:**
 If the user no longer wants the favourite recipe on their favourites page,
 they will be given the option to remove it from the page. 
+* **Search bar:**
+This allows user and non-users to search specific words within the website to help find recipes faster. 
+
+# Technologies Used
+Within the website, I have used many external resources to help construct the webiste and 
+increased the user experience. 
+### Jquery 
+A widely known external library to 'write less, do more'. It simplifies the code needed when
+using Javascript. https://jquery.com/
+### Materialize
+A framework to style the layout of the website and make it mobile responsive. 
+https://materializecss.com/
+### Font Awesome
+This is an external library of icons which have been used around the site to make it more
+visually appealing. 
+https://fontawesome.com/icons?d=gallery
+
+# Testing 
+
+
 
 
 

@@ -173,9 +173,10 @@ def add_favourites(favourite_recipe):
 def delete_fave(favourite_recipe):
     user_fave = mongo.db.User.find_one({"username": session["user"]})
     user = mongo.db.User.find_one({"_id": ObjectId(user_fave["_id"])})
-    mongo.db.User.update_one({"_id": user}, {"$pop": {"user": ObjectId(favourite_recipe)}})
-    flash ("Favourite recipe removed")
-    return redirect(url_for("view_favourites"))
+    print(user)
+    mongo.db.User.update_one({"_id": user}, {"$unset": {"favourite": ObjectId(favourite_recipe)}})
+    flash("Favourite recipe removed")
+    return redirect(url_for("view_favourites", username=session['user']))
 
 
 if __name__ == "__main__":
