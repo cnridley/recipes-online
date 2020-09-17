@@ -34,3 +34,34 @@ page where the recipes they have added are stored, and where they can favourite 
 * As a member, I want the option to edit the recipes I have uploaded to the site.
 * As a member, I want the option to delete the recipes I have uploaded to the site. 
 
+# Features
+
+* **The register feature:**
+This gives all visitors to the website the option to register 
+to the website and benefit from all the listed features above. 
+* **The login feature:**
+Once registered, users can login to their profile. When logged in
+they can 'add a new recipe', 'edit' and 'delete' recipes that they 
+have added. They will also be able to 'favourite' any recipes 
+on the website. 
+* **Add a new recipe:**
+This is a faeture that is only available to registered users.
+They can store any recipes they wish too. The recipe will then be available 
+for anyone to see (both registered and unregistered).
+* **Edit recipe:**
+This feature will only be available to the specific user that created the recipe. 
+They will be able to edit any recipe they have addded to the site in case they made 
+a mistake. 
+* **Delete recipe:**
+This is feature that will only be available to the user that added the recipe. 
+If they decide then want to delete the recipe from the site they are able too with 
+this function. 
+* **Favourite recipe:**
+Registered users are able to favourite any recipe that is on the site. 
+This recipe will then be added to a personalized 'favourites' page. 
+* **Remove from favourites:**
+If the user no longer wants the favourite recipe on their favourites page,
+they will be given the option to remove it from the page. 
+
+
+

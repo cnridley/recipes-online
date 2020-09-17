@@ -18,8 +18,11 @@
          <p>{{ recipe.method }}</p>
          <p>Preparation time: {{ recipe.time }}</p>
          <p><em>Created By: {{ recipe.created_by }} </em></p>
+         <a href="{{ url_for('delete_fave', favourite_recipe=recipe._id) }}" 
+         class="btn-small red text-white center-align">Delete From Favourites</a>
       </div>
     </li>
+    
     {% endfor %}
 
 

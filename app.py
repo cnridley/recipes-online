@@ -156,7 +156,7 @@ def delete_recipe(recipe_id):
 @app.route("/view_favourites/<username>")
 def view_favourites(username):
     if session["user"]:
-        favs_list = mongo.db.User.find_one({"username": session["user"]})["favourites"]
+        favs_list = mongo.db.User.find_one({"username": session["user"]})["favourite"]
         favs = mongo.db.Recipe.find({"_id": {"$in": favs_list}})
         return render_template ("favourites.html", favs_list=favs_list, favs=favs)
 
@@ -166,9 +166,16 @@ def add_favourites(favourite_recipe):
     if request.method == "POST":
         user_favourite = mongo.db.User.find_one({"username": session["user"]})
         favourite = mongo.db.User.find_one({"_id": ObjectId(user_favourite["_id"])})
-        mongo.db.User.update_one({"_id": ObjectId(user_favourite["_id"])}, {"$push": {"favourites": ObjectId(favourite_recipe)}})
+        mongo.db.User.update_one({"_id": ObjectId(user_favourite["_id"])}, {"$push": {"favourite": ObjectId(favourite_recipe)}})
         return redirect(url_for("view_favourites", username=session['user']))
 
+@app.route("/delete_fave/<favourite_recipe>")
+def delete_fave(favourite_recipe):
+    user_fave = mongo.db.User.find_one({"username": session["user"]})
+    user = mongo.db.User.find_one({"_id": ObjectId(user_fave["_id"])})
+    mongo.db.User.update_one({"_id": user}, {"$pop": {"user": ObjectId(favourite_recipe)}})
+    flash ("Favourite recipe removed")
+    return redirect(url_for("view_favourites"))
 
 
 if __name__ == "__main__":
