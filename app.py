@@ -172,9 +172,17 @@ def add_favourites(favourite_recipe):
 @app.route("/delete_fave/<favourite_recipe>")
 def delete_fave(favourite_recipe):
     user_fave = mongo.db.User.find_one({"username": session["user"]})
-    user = mongo.db.User.find_one({"_id": ObjectId(user_fave["_id"])})
-    print(user)
-    mongo.db.User.update_one({"_id": user}, {"$unset": {"favourite": ObjectId(favourite_recipe)}})
+    # comented out code below as I use a different way to get the user ID
+    # user = mongo.db.User.find_one({"_id": ObjectId(user_fave["_id"])})
+
+    # new way to get the user ID
+    user_id = user_fave['_id']
+
+    # this line below is no longer used
+    # mongo.db.User.update_one({"_id": user}, {"$pull": {"favourite": ObjectId(favourite_recipe)}})
+
+    # this is the new query that seems to delete the recipe
+    mongo.db.User.update( {'_id': ObjectId(user_id)}, { '$pull': { 'favourite': { '$in': [ ObjectId(favourite_recipe) ] } } } )
     flash("Favourite recipe removed")
     return redirect(url_for("view_favourites", username=session['user']))
 
