@@ -81,23 +81,39 @@ https://fontawesome.com/icons?d=gallery
 
 # Testing 
 
-@app.route("/delete_fave/<favourite_recipe>")
-def delete_fave(favourite_recipe):
-    user_fave = mongo.db.User.find_one({"username": session["user"]})
-    # comented out code below as I use a different way to get the user ID
-    # user = mongo.db.User.find_one({"_id": ObjectId(user_fave["_id"])})
+### Python code checker
+Throughout the project, I used https://extendsclass.com/python-tester.html to check the python code 
+and syntax was all correct, and made any changes accordingly. 
 
-    # new way to get the user ID
-    user_id = user_fave['_id']
+### Search bar 
+To test the search bar function, I used a word I knew was in the recipes list and made sure it showed up.
+I then used a word I knew wasn't in the recipes list and made sure the 'no recipes found' messsage
+appeared. 
 
-    # this line below is no longer used
-    # mongo.db.User.update_one({"_id": user}, {"$pull": {"favourite": ObjectId(favourite_recipe)}})
+### Register function 
+To test the register function:
+* Go to the register page to make sure it connects correctly.
+* Enter a username without a password to make sure an error occurs and that an account is not 
+made.
+* Enter a username that I knew was already in use to make sure that an error occurs which says; "username
+already in use"
+* Enter a valid username and password, which should successfully make a profile.
+* If a profile has been made more options on the nav bar should appear. I.e 'add recipe',
+'view favourites', 'profile'. 
 
-    # this is the new query that seems to delete the recipe
-    mongo.db.User.update( {'_id': ObjectId(user_id)}, { '$pull': { 'favourite': { '$in': [ ObjectId(favourite_recipe) ] } } } )
-    flash("Favourite recipe removed")
-    return redirect(url_for("view_favourites", username=session['user']))
+### Log In function
+To test the log in function:
+* Go to log in page to make sure it connects properly. 
+* Enter and incorrect username and/or password to make sure an error occurs which says; "incorrecr 
+username and/or password"
+* Enter correct username and password, which should successfully log user in. 
+* If user has been logged in more options on the nav bar should appear. I.e 'add recipe',
+'view favourites', 'profile'.
 
-
+### Add new recipes
+### Edit recipes
+### Delete recipes
+### Add to favourites 
+### Delete from favourites
 
 
