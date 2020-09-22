@@ -81,7 +81,7 @@ https://fontawesome.com/icons?d=gallery
 
 # Testing 
 
-### Python code checker
+### Python code checker
 Throughout the project, I used https://extendsclass.com/python-tester.html to check the python code 
 and syntax was all correct, and made any changes accordingly. 
 
@@ -145,4 +145,11 @@ If the user favourites a recipe and then later on decides they no longer want th
 favourites page, they are given the option to remove it from the page. 
 To test this function, I added multiple recipes to favourites and then removed them to make sure that
 the flash message worked and that the recipe was removed. 
+
+# Deployment 
+To deploy my app I have used heroku, which is then automatically connected to github. 
+Everytime I pushed my work git, it automatically deployed to heroku. I made sure to push my work 
+regularly in order to make sure I did not lose any work and that it was all up-to-date. 
+The website can be found at: https://recipes-online-cr.herokuapp.com/
+
 
