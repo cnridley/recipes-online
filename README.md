@@ -111,9 +111,38 @@ username and/or password"
 'view favourites', 'profile'.
 
 ### Add new recipes
-### Edit recipes
-### Delete recipes
-### Add to favourites 
-### Delete from favourites
+When the user is logged in they should be able to add new recipes when they click on the 'Add new recipe'
+button on the nav bar. 
+To test this, I added a recipe and made sure that the recipe was correctly added to the home page, 
+profile page and to mongo DB.
 
+### Edit recipes
+* The edit button is formatted only to show up on recipes that the logged in user can see. To test this 
+I added a recipe on one users profile and made sure that the edit button appeared. I then logged out 
+and logged back in as a different user to test the edit button did not show on their profile. 
+
+* When the edit button is clicked the user is re-directed to a new page to edit the recipe. 
+On this page, the form is auto-filled with the correct recipe that has been selecetd, to test this 
+I made multiple recipes and clicked edit on all of them. 
+Once I had edited the recipe and clicked 'submit', I checked on the recipes page that they recipe
+has been changed and also checked on mongo DB to make sure that it had been updated also. 
+
+### Delete recipes
+As with the edit recipes, the delete recipes button was also formatted only to show up on recipes that
+the logged in user can see. To test this I added a recipe on one users profile and made sure that the delete button appeared. I then logged out 
+and logged back in as a different user to test the delete button did not show on their profile. 
+
+To test the delete function, I had to delete a recipe and make sure it was deleted completely of the 
+website and also deleted from mongoDB. 
+
+### Add to favourites 
+The add to favourites function is something that is only available to registered users. 
+To test the add to favourites function, I logged in and selected the 'add to favourites' on multiple
+recipes to test that it; redirected to the favourites.html page and added the recipe to the page. 
+
+### Delete from favourites
+If the user favourites a recipe and then later on decides they no longer want that recipe on their 
+favourites page, they are given the option to remove it from the page. 
+To test this function, I added multiple recipes to favourites and then removed them to make sure that
+the flash message worked and that the recipe was removed. 
 
